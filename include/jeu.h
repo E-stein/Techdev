@@ -28,4 +28,7 @@ void calcul_vieillissement();
 // fait évoluer la grille g d'un pas de temps
 void evolue (grille *g, grille *gc);
 
+// test si une colonie est oscillante et affiche sa période
+void test(grille *g, grille *gc);
+
 #endif

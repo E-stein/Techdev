@@ -115,10 +115,12 @@ void debut_jeu(grille *g, grille *gc){
 			{// touche "v" pour activer le vieillissement
 				calcul_vieillissement();
 				affichage();
+				break;
 			}
 			case 'o':
 			{// touche "o" pour tester si une colonie est oscillante
-			
+				test(g, gc);
+				break;
 			}
                         default :
                         { // touche non traitée

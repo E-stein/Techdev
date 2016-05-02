@@ -89,3 +89,26 @@ void libere_grille (grille* g)
 	free(g->cellules);
 }
 
+/** @brief Fonction qui compare deux grilles de même tailles
+@param g1 Pointeur sur la première grille à comparer
+@param g2 Pointeur sur la seconde grille à comparer
+@return test Résultat du test, si les deux grilles sont identiques la fonction renvoie 1 sinon elle renvoie 0
+**/
+
+int comparer_grilles(grille* g1, grille* g2)
+{
+	int i,j, test, l=g1->nbl, c=g1->nbc;
+	for (i=0; i<l; i++)
+	{
+		for(j=0; j<c; j++)
+		{
+			if(g1->cellules[i][j]!=g2->cellules[i][j])
+			{
+				test=0;
+				return test;
+			}
+		}
+	}
+	test=1;
+	return test;
+}

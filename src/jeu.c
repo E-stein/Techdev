@@ -163,8 +163,7 @@ void evolue (grille *g, grille *gc){
 					}
 					else
 					{
-		
-					set_vivante(i,j,*g);
+						set_vivante(i,j,*g);
 					}
 				}
 				
@@ -175,4 +174,50 @@ void evolue (grille *g, grille *gc){
 	return;
 }
 
+void test(grille* g, grille* gc)
+{
+	char touche;
+	touche=getchar();
+	grille* gb;
+	grille* gi;
+	int i,j,l=g->nbl, c = g->nbc,test=0, t=0;
+	alloue_grille(l,c, gb);
+	copie_grille(*g,*gb);
+	alloue_grille(l,c, gi);
+	copie_grille(*g,*gi);
+	while((touche!="q")||(test!=1))
+	{
+		for (i=0; i<g->nbl; i++)
+		{
+			for(j=0; j<g->nbc;j++)
+			{
+				if(t>=1)
+				{
+					test=comparer_grilles(g, gc);
+				}
+				if(t>=1)
+				{
+					test=comparer_grilles(g, gb);
+				}
+			}	
+		}
+		evolue(g, gi);
+		copie_grille (*g,*gc);
+		t++;
+		touche=getchar();
+	}
+	libere_grille(gc);
+	libere_grille(gb);
+	libere_grille(gi);
+	if (test)
+	{
+		printf("La colonie est osccillante et sa période est %d\n", t);
+	}
+	else
+	{
+		printf("La colonie n'est pas oscillante\n");
+	}
+}
+				
+	
 

@@ -33,4 +33,7 @@ static inline int est_non_viable(int i, int j, grille g){return g.cellules[i][j]
 // recopie gs dans gd (sans allocation)
 void copie_grille (grille gs, grille gd);
 
+// test si deux grilles sont identiques
+int comparer_grilles(grille* g1, grille* g2);
+
 #endif
